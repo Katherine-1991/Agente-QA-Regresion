@@ -1,0 +1,69 @@
+# Perfil de proyecto de ejemplo. Copiar a config/project-profile.yaml y ajustar.
+# Nunca incluir tokens ni credenciales: el MCP de Atlassian las lee de su propio --env-file.
+project:
+  name: proyecto-ejemplo
+atlassian:
+  jira_projects: []
+  confluence_spaces: []
+  issue_type_aliases:
+    epic: [Epic, Épica]
+    story: [Story, Historia de usuario]
+    improvement: [Improvement, Mejora]
+    out_of_scope: [Out of scope, Fuera de alcance]
+    incident: [Bug, Incident, Incidencia]
+    test_plan: [Task, Tarea]
+    test_case: [Test]
+  acceptance_criteria_fields: []
+  # Consultas para hijas de la épica ({epic_key} se reemplaza). Si una falla, se registra y se sigue.
+  epic_child_jql:
+    - 'parent = {epic_key}'
+    - '"Epic Link" = {epic_key}'
+  page_size: 50
+  max_pages: 20
+  comment_limit: 50
+  retry:
+    max_attempts: 3
+    backoff_seconds: 1.0
+  # Incidencia que solo se LEE para descubrir el mapeo real de campos y enlaces (nunca se modifica).
+  reference_issue: null
+  mcp:
+    # Archivo JSON con "mcpServers" (formato .mcp.json / claude_desktop_config.json) o command/args directos.
+    config_file: null
+    server_name: atlassian
+    command: null
+    args: []
+    # En dry-run se agrega READ_ONLY_MODE=true: el servidor no expone herramientas de escritura.
+    read_only_env:
+      READ_ONLY_MODE: "true"
+documents:
+  root_pattern: "<project-root>/Formularios/<epic-key>"
+  epic_folder_naming: jira-key   # jira-key -> Formularios/PROJ-123 ; numeric -> Formularios/123
+  ignore_patterns:
+    - ".git/**"
+    - "regression-plan/**"
+  max_file_mb: 25
+  max_doc_only_cases: 25
+figma:
+  enabled: false
+  file_keys: []
+design:
+  # Fuentes de casos: acceptance-criteria, business-rules, decisions, defects, documentation
+  case_sources: [acceptance-criteria, business-rules, decisions, defects, documentation]
+output:
+  root_pattern: "<epic-folder>/regression-plan"
+  gherkin_language: es
+  overwrite: false
+publication:
+  enabled: false
+  test_plan_issue_type: Tarea
+  test_case_issue_type: Test
+  approval_command: Publicalo
+  epic_association: parent        # parent | link
+  epic_link_type: Relates
+  test_plan_association: link     # parent (Test como subtarea) | link
+  test_plan_link_type: Relates
+  story_link_type: Relates
+  inherit_epic_components: true   # Tarea y Tests llevan los mismos componentes que la épica
+  inherit_epic_fields: []         # p. ej. [Area Solicitante]: se copia el valor de la épica
+  labels: [qa-regresion]
+  test_summary_pattern: "{tc_id} | {title}"

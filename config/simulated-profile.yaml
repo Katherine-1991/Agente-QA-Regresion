@@ -1,0 +1,45 @@
+# Perfil de la prueba simulada (fixtures locales, sin conexión a Jira).
+project:
+  name: qa-simulado
+atlassian:
+  base_url: null
+  jira_projects: [QAS]
+  issue_type_aliases:
+    epic: [Epic, Épica]
+    story: [Story, Historia, Historia de usuario]
+    improvement: [Improvement, Mejora]
+    out_of_scope: [Out of scope, Fuera de alcance]
+    incident: [Bug, Incident, Incidencia]
+    test_plan: [Task, Tarea]
+    test_case: [Test]
+  acceptance_criteria_fields: [customfield_10050]
+  epic_child_jql:
+    - 'parent = {epic_key}'
+    - '"Epic Link" = {epic_key}'
+  retry:
+    max_attempts: 3
+    backoff_seconds: 0
+  # Test Plan de referencia del fixture (Tarea hija de la épica, Tests subtareas, Relates a historias).
+  reference_issue: QAS-200
+documents:
+  root_pattern: "<project-root>/.simulacion/Formularios/<epic-key>"
+  epic_folder_naming: jira-key
+  ignore_patterns:
+    - ".git/**"
+    - "regression-plan/**"
+output:
+  root_pattern: "<epic-folder>/regression-plan"
+  gherkin_language: es
+  overwrite: false
+publication:
+  enabled: false
+  test_plan_issue_type: Tarea
+  test_case_issue_type: Test
+  approval_command: Publicalo
+  epic_association: parent
+  test_plan_association: parent
+  story_link_type: Relates
+  inherit_epic_components: true
+  labels: [QA]
+  technical_labels: false
+  inherit_epic_fields: [Area Solicitante]

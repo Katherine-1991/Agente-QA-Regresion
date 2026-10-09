@@ -1,0 +1,21 @@
+{
+  "_comment": "Invariantes esperados de la prueba simulada (no números exactos de casos, que pueden crecer).",
+  "epic_key": "QAS-100",
+  "epic_name": "Portal de Devoluciones",
+  "final_phase": "AWAITING_PUBLICATION_APPROVAL",
+  "epic_components": ["Backoffice Devoluciones", "Portal Contribuyentes"],
+  "audit_status_in": ["PASS", "PASS_WITH_WARNINGS"],
+  "min_requirements": 10,
+  "min_findings": 8,
+  "min_cases": 10,
+  "required_tags": ["@positive", "@negative", "@boundary", "@role", "@state-transition", "@defect-regression",
+                    "@pending-business-decision", "@smoke", "@critical-path", "@full-regression"],
+  "trace_classifications": ["alineado", "solo-documentacion", "contradictorio", "sin-evidencia-suficiente"],
+  "required_story_links": ["QAS-101", "QAS-102", "QAS-103"],
+  "excluded_story_links": ["QAS-104"],
+  "artifacts": [
+    "test-plan-regresion.md", "trazabilidad.csv", "matriz-impacto.csv", "catalogo-datos-prueba.md", "gaps.md",
+    "source-manifest.json", "qa-validation-report.md", "publication-preview.json"
+  ],
+  "ignored_instruction_sources": ["QAS-101#comment-30001", "QAS-101#comment-30002", "doc:notas-reunion.txt"]
+}

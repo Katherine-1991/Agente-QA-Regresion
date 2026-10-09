@@ -1,0 +1,3 @@
+Funcionalidad;Evento de ejecución;User Story;Descripción
+Solicitud;Al presionar Enviar solicitud;QAS-101;Se valida que el CUIT tenga 11 dígitos
+Aprobación;Al aprobar;QAS-102;La solicitud pasa de estado "Pendiente" a "Aprobada"

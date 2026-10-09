@@ -1,0 +1,22 @@
+# Entornos y caches
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+build/
+
+# Credenciales y configuración de conexión a sistemas externos (nunca se versionan)
+.env
+*.env
+.mcp.json
+config/project-profile.yaml
+.claude/settings.local.json
+
+# Datos reales del cliente, servidores MCP locales y artefactos generados
+/Formulario/
+/Formularios/
+/mcp-fedpat-doctec/
+/.simulacion/
+regression-plan/
+publication-journal.json

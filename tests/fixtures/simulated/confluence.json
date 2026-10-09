@@ -1,0 +1,18 @@
+{
+  "pages": [
+    {
+      "id": "9001",
+      "title": "Especificación funcional QAS-100 Portal de Devoluciones",
+      "space": {"key": "QAS"},
+      "url": "confluence:9001",
+      "body": "Esta página describe la épica QAS-100.\nLa solicitud debe registrar la fecha de alta de forma automática.\nEl CUIT debe tener 11 dígitos."
+    },
+    {
+      "id": "9002",
+      "title": "Manual de otro producto",
+      "space": {"key": "OTRO"},
+      "url": "confluence:9002",
+      "body": "No menciona la épica."
+    }
+  ]
+}

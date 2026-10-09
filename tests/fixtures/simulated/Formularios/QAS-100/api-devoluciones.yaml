@@ -1,0 +1,21 @@
+openapi: 3.0.3
+info:
+  title: API de devoluciones
+  version: 1.0.0
+paths:
+  /devoluciones:
+    post:
+      summary: Crea una solicitud de devolución
+      responses:
+        "201":
+          description: creada
+        "400":
+          description: datos inválidos
+components:
+  schemas:
+    Solicitud:
+      type: object
+      required: [cuit, monto]
+      properties:
+        cuit: {type: string}
+        monto: {type: number}
